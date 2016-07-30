@@ -4,7 +4,7 @@ class CreateVotes < ActiveRecord::Migration[5.0]
       t.integer :voteable_id
       t.string :voteable_type
 
-      t.timestamps, null: false
+      t.timestamps( null: false )
     end
 
     add_index :votes, [:voteable_type, :voteable_id]

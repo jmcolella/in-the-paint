@@ -6,7 +6,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.references :article
       t.references :voteable, polymorphic: true, index: true
 
-      t.timestamps, null: false
+      t.timestamps( null: false )
     end
   end
 end
