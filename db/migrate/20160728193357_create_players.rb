@@ -2,16 +2,17 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
   def change
     create_table :players do |t|
 
-    	t.string :name, null: false
-    	t.string :position, null: false
-    	t.integer :number, null: false
-    	t.integer :height, null: false
-    	t.integer :weight, null: false
-    	t.integer :average_points, null: false
-    	t.integer :average_assists, null: false
-    	t.integer :average_rebounds, null: false
+    	t.string :name
+    	t.string :position
+    	t.integer :team_id
+    	t.string :number
+    	t.string :height
+    	t.string :weight
+    	t.float :average_points
+    	t.float :average_assists
+    	t.float :average_rebounds
 
-    	t.references :team, null: false
+    	t.references :team
 
       t.timestamps null: false
     end
