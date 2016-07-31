@@ -8,7 +8,8 @@
 
 require 'nba_api_wrapper'
 
-NBA::Stats::Team.get_teams.each { |team| Team.create(name: team[1], team_id: team[0]) }
+NBA::Stats::Team.get_teams.each { |team| Team.create(name: team[1], api_id: team[0]) }
+
 
 Team.all.each do |team|
 	NBA::Player.get_all_players['resultSets'][0]['rowSet'].each do |player|
@@ -16,15 +17,17 @@ Team.all.each do |team|
 			team.players.create(
 				name: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][1], 
 				position: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][14], 
-				team_id: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][16], 
+				api_id: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][16], 
 				number: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][13], 
 				height: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][10], 
 				weight: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][11], 
 				average_points: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][3], 
 				average_assists: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][4], 
-				average_rebounds: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][5]
+				average_rebounds: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][5],
+				team_id: team[0]
 				)
 		end
 	end
 end
+
 
