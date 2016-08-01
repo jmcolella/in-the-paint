@@ -3,6 +3,7 @@ class CreateArticles < ActiveRecord::Migration[5.0]
     create_table :articles do |t|
       t.string 	 :title, { null: false }
       t.string 	 :body, { null: false }
+      t.references :team
       t.references :user
       t.references :voteable, polymorphic: true, index: true
 
