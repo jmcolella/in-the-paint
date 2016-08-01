@@ -1,10 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command NBA::Player.get_player(or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# This API does four things.
+# Firstly it takes all the teams provided and pushes them into the Team database by setting the API-team-id to our internal team.id and it does the same for the team name.
+# Secondly it takes the player id, name and team_id and sets it to our player database.
+# Third, it takes the player we assigned and sets their position, number, height and weight
+# Finally it does the same for the player averages.
 
 
 require 'nba_api_wrapper'
