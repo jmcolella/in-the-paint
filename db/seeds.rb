@@ -6,28 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 require 'nba_api_wrapper'
 
-NBA::Stats::Team.get_teams.each { |team| Team.create(name: team[1], api_id: team[0]) }
-
-
-Team.all.each do |team|
-	NBA::Player.get_all_players['resultSets'][0]['rowSet'].each do |player|
-		if team[0] == player[7]
-			team.players.create(
-				name: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][1], 
-				position: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][14], 
-				api_id: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][16], 
-				number: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][13], 
-				height: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][10], 
-				weight: NBA::Player.get_player(player[0])['resultSets'][0]['rowSet'][0][11], 
-				average_points: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][3], 
-				average_assists: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][4], 
-				average_rebounds: NBA::Player.get_player(player[0])['resultSets'][1]['rowSet'][0][5],
-				team_id: team[0]
-				)
-		end
-	end
+# set the team id as the api_id
+NBA::Stats::Team.get_teams.each do |team|
+	Team.create(id: team[0], name: team[1])
 end
 
 
+NBA::Player.get_all_players['resultSets'][0]["rowSet"].each do |player|
+	Player.create(
+		id: player[0],
+		name: player[2],
+		team_id: player[7]
+	)
+end
+
+players = Player.all
+
+players.each do |player|
+	NBA::Player.get_player(player.id)['resultSets'][0]["rowSet"].each do |details|
+		player.position = details[14]
+		player.number = details[13]
+		player.height = details[10]
+		player.weight = details[11]
+	end
+	NBA::Player.get_player(player.id)["resultSets"][1]["rowSet"].each do |info|
+		player.average_points = info[3]
+		player.average_assists = info[4]
+		player.average_rebounds = info[5]
+	end
+	player.save
+end
