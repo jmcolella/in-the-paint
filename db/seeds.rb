@@ -9,7 +9,6 @@
 
 require 'nba_api_wrapper'
 
-# set the team id as the api_id
 NBA::Stats::Team.get_teams.each do |team|
 	Team.create(id: team[0], name: team[1])
 end
