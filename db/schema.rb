@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160728195046) do
     t.string   "name"
     t.string   "position"
     t.string   "number"
+    t.integer  "api_id"
     t.string   "height"
     t.string   "weight"
     t.float    "average_points"
