@@ -17,6 +17,7 @@ Team.all.each do |team|
 	NBA::Player.get_all_players['resultSets'][0]["rowSet"].each do |player|
 		if team.api_id == player[7]
 			Player.create(
+				api_id: player[0],
 				name: player[2],
 				team_id: team.id
 			)

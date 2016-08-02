@@ -18,11 +18,13 @@ ActiveRecord::Schema.define(version: 20160728195046) do
   create_table "articles", force: :cascade do |t|
     t.string   "title",         null: false
     t.string   "body",          null: false
+    t.integer  "team_id"
     t.integer  "user_id"
     t.string   "voteable_type"
     t.integer  "voteable_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["team_id"], name: "index_articles_on_team_id", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
     t.index ["voteable_type", "voteable_id"], name: "index_articles_on_voteable_type_and_voteable_id", using: :btree
   end
@@ -43,7 +45,6 @@ ActiveRecord::Schema.define(version: 20160728195046) do
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.string   "position"
-    t.integer  "api_id"
     t.string   "number"
     t.string   "height"
     t.string   "weight"
@@ -67,8 +68,10 @@ ActiveRecord::Schema.define(version: 20160728195046) do
     t.string   "username",        limit: 64, null: false
     t.string   "email",           limit: 64, null: false
     t.string   "password_digest",            null: false
+    t.integer  "team_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
   create_table "votes", force: :cascade do |t|
