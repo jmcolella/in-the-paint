@@ -10,31 +10,25 @@
 require 'nba_api_wrapper'
 
 NBA::Stats::Team.get_teams.each do |team|
-	Team.create(id: team[0], name: team[1])
+	Team.create(api_id: team[0], name: team[1])
 end
 
-
-NBA::Player.get_all_players['resultSets'][0]["rowSet"].each do |player|
-	Player.create(
-		id: player[0],
-		name: player[2],
-		team_id: player[7]
-	)
+Team.all.each do |team|
+	NBA::Player.get_all_players['resultSets'][0]["rowSet"].each do |player|
+		if team.api_id == player[7]
+			Player.create(
+				name: player[2],
+				team_id: team.id
+			)
+		end
+	end
 end
 
-players = Player.all
-
-players.each do |player|
-	NBA::Player.get_player(player.id)['resultSets'][0]["rowSet"].each do |details|
-		player.position = details[14]
-		player.number = details[13]
-		player.height = details[10]
-		player.weight = details[11]
+Player.all.each do |player|
+	NBA::Player.get_player(player.api_id)['resultSets'][0]["rowSet"].each do |details|
+		player.update_attributes(position: details[14], number: details[13], height: details[10], weight: details[11])
 	end
-	NBA::Player.get_player(player.id)["resultSets"][1]["rowSet"].each do |info|
-		player.average_points = info[3]
-		player.average_assists = info[4]
-		player.average_rebounds = info[5]
+	NBA::Player.get_player(player.api_id)["resultSets"][1]["rowSet"].each do |info|
+		player.update_attributes(average_points: info[3], average_assists: info[4], average_rebounds: info[5])
 	end
-	player.save
 end

@@ -4,7 +4,6 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
 
     	t.string :name
     	t.string :position
-    	t.integer :api_id
     	t.string :number
     	t.string :height
     	t.string :weight
