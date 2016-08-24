@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rack-cors'
 gem 'nba_api_wrapper'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
