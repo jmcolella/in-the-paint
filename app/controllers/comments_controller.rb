@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(article_params)
 
     if @comment.save
-      status 200
+      render json: { comment: @comment }
     else
       # Need to change this for telling front end the post failed
-      render 'new'
+      render json: { error: "Comment did not save." }
     end
   end
 
@@ -21,15 +21,17 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update_attributes(comment_params)
-      status 200
+      render json: { updated_comment: @comment }
     else
       # Need to change this for telling front end the put failed
-      render 'edit'
+      render json: { error: "Comment did not update." }
     end
   end
 
   def destroy
     @comment.destroy
+
+    render json: { success: "200" }
   end
 
   private
