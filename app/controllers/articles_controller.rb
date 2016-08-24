@@ -2,25 +2,29 @@ class ArticlesController < ApplicationController
 
 
   before_action :find_article
-  skip_before_action :find_article, only [:new, :create]
+  skip_before_action :find_article, only [:index, :new, :create]
 
   def index
     @articles = Article.all
+
+    render json: { articles: @articles }
   end
 
   def create
     @article = Article.new(article_params)
 
     if @article.save
-      status 200
+      render json: { article: @article }
     else
       # Need to change this for telling front end the post failed
-      render 'new'
+      render json: { errors: "Article did not save." }
     end
   end
 
   def show
     @comments = @article.comments
+
+    render json: { comments: @comments }
   end
 
   def edit
@@ -28,15 +32,17 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update_attributes(article_params)
-      status 200
+      render json: { article: @article }
     else
       # Need to change this for telling front end the put failed
-      render 'edit'
+      render json: { errors: "Article did not update." }
     end
   end
 
   def destroy
     @article.destroy
+
+    render json: { success: "200" }
   end
 
   private
