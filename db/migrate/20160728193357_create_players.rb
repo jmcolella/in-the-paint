@@ -5,12 +5,9 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
     	t.string :name
     	t.string :position
     	t.string :number
-        t.integer :api_id
-    	t.string :height
-    	t.string :weight
-    	t.float :average_points
-    	t.float :average_assists
-    	t.float :average_rebounds
+        t.string :api_id
+    	t.integer :height
+    	t.integer :weight
 
     	t.references :team
 
