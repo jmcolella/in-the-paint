@@ -32,6 +32,69 @@ api['conferences'][1]['divisions'].each do |division|
 	end
 end
 
+Team.all.each do |team|
+	if team.id == 1
+		team.update(logo: 'http://i.imgur.com/ip20hDl.png')
+	elsif team.id == 2
+		team.update(logo: 'http://i.imgur.com/fvM2d2J.png')
+	elsif team.id == 3
+		team.update(logo: 'http://i.imgur.com/qMpoY6g.png')
+	elsif team.id == 4
+		team.update(logo: 'http://i.imgur.com/Ah4H5bX.png')
+	elsif team.id == 5
+		team.update(logo: '')
+	elsif team.id == 6
+		team.update(logo: 'http://i.imgur.com/VNr63vU.png')
+	elsif team.id == 7
+		team.update(logo: '')
+	elsif team.id == 8
+		team.update(logo: 'http://i.imgur.com/SC1Cnof.png')
+	elsif team.id == 9
+		team.update(logo: 'http://i.imgur.com/zvciPsN.png')
+	elsif team.id == 10
+		team.update(logo: 'http://i.imgur.com/cNNU3sh.png')
+	elsif team.id == 11
+		team.update(logo: 'http://i.imgur.com/Pl7a10b.png')
+	elsif team.id == 12
+		team.update(logo: 'http://i.imgur.com/qzzeam3.png')
+	elsif team.id == 13
+		team.update(logo: 'http://i.imgur.com/kjWOnPI.png')
+	elsif team.id == 14
+		team.update(logo: 'http://i.imgur.com/CiUSK6p.png')
+	elsif team.id == 15
+		team.update(logo: 'http://i.imgur.com/dTJWjbQ.png')
+	elsif team.id == 16
+		team.update(logo: 'http://i.imgur.com/RZUumTC.png')
+	elsif team.id == 17
+		team.update(logo: 'http://i.imgur.com/BjbNfBI.png')
+	elsif team.id == 18
+		team.update(logo: 'http://i.imgur.com/6rAZcpi.png')
+	elsif team.id == 19
+		team.update(logo: 'http://i.imgur.com/GczECGK.png')
+	elsif team.id == 20
+		team.update(logo: 'http://i.imgur.com/qLR2c5k.png')
+	elsif team.id == 21
+		team.update(logo: 'http://i.imgur.com/Ld7UHKV.png')
+	elsif team.id == 22
+		team.update(logo: 'http://i.imgur.com/ejsDjKJ.png')
+	elsif team.id == 23
+		team.update(logo: 'http://i.imgur.com/QptRDRV.png')
+	elsif team.id == 24
+		team.update(logo: 'http://i.imgur.com/4MpENgU.png')
+	elsif team.id == 25
+		team.update(logo: 'http://i.imgur.com/Sn0PWsE.png')
+	elsif team.id == 26
+		team.update(logo: 'http://i.imgur.com/N40KcUY.png')
+	elsif team.id == 27
+		team.update(logo: 'http://i.imgur.com/vhQKIpz.png')
+	elsif team.id == 28
+		team.update(logo: 'http://i.imgur.com/SDTd52F.png')
+	elsif team.id == 29
+		team.update(logo: 'http://i.imgur.com/2JMgj3P.png')
+	elsif team.id == 30
+		team.update(logo: 'http://i.imgur.com/B2fguau.png')
+	end
+end
 
 Team.all.each do |team|
 	url = "https://api.sportradar.us/nba-t3/teams/" + team.api_id + "/profile.json?api_key=wenvqgm9ps95rydu9e6peyyf"
