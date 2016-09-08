@@ -46,21 +46,23 @@ ActiveRecord::Schema.define(version: 20160728195046) do
     t.string   "name"
     t.string   "position"
     t.string   "number"
-    t.integer  "api_id"
-    t.string   "height"
-    t.string   "weight"
-    t.float    "average_points"
-    t.float    "average_assists"
-    t.float    "average_rebounds"
+    t.string   "api_id"
+    t.integer  "height"
+    t.integer  "weight"
     t.integer  "team_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_players_on_team_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
-    t.integer  "api_id"
+    t.string   "market"
+    t.string   "abbr"
+    t.string   "api_id"
+    t.string   "division"
+    t.string   "conference"
+    t.string   "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
