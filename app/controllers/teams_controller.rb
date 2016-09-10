@@ -9,7 +9,8 @@ class TeamsController < ApplicationController
 	def show
 		@team = Team.find(params[:id])
 		@players = @team.players
+    @articles = @team.articles
 
-		render json: { players: @players}
+		render json: { players: @players, articles: @articles}
 	end
 end

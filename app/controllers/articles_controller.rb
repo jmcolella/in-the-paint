@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
 
 
-  # before_action :find_article
-  # skip_before_action :find_article, only: [:index, :new, :create]
+  before_action :find_article
+  skip_before_action :find_article, only: [:index, :new, :create]
 
   def index
     @articles = Article.all
@@ -22,10 +22,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    binding.pry
     @comments = @article.comments
 
-    render json: { comments: @comments }
+    render json: { article: @article, comments: @comments }
   end
 
   def edit
@@ -49,7 +48,7 @@ class ArticlesController < ApplicationController
   private
 
   def find_article
-    @article = Article.find_by(params[:id])
+    @article = Article.find_by(id: params[:id])
   end
 
   def article_params
