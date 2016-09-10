@@ -11,6 +11,6 @@ class TeamsController < ApplicationController
 		@players = @team.players
     @articles = @team.articles
 
-		render json: { players: @players, articles: @articles}
+		render json: { team: @team, players: @players, articles: @articles}
 	end
 end
