@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
 
-  before_action :find_comment
+  # before_action :find_comment
 
   def new
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(body: params[:comments][:body], article_id: params[:comments][:article_id], user_id: params[:comments][:user_id])
 
     if @comment.save
       render json: { comment: @comment }
@@ -20,8 +20,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update_attributes(comment_params)
-      render json: { updated_comment: @comment }
+    # binding.pry
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(body: params[:comments][:body], article_id: params[:comments][:article_id], user_id: params[:comments][:user_id])
+      render json: { comment: @comment }
     else
       # Need to change this for telling front end the put failed
       render json: { error: "Comment did not update." }
@@ -29,6 +31,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    # binding.pry
+    @comment = Comment.find_by(id: params[:id])
     @comment.destroy
 
     render json: { success: "200" }
@@ -41,7 +45,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comments).permit(:body, :article_id, :user_id)
+    params.require(:comments).permit(params[:comments][:body], params[:comments][:article_id], params[:comments][:user_id])
   end
 
 end
