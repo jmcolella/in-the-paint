@@ -34,65 +34,65 @@ end
 
 Team.all.each do |team|
 	if team.id == 1
-		team.update(logo: 'http://i.imgur.com/ip20hDl.png')
+		team.update(logo: 'http://i.imgur.com/b3J4PrC.png')
 	elsif team.id == 2
-		team.update(logo: 'http://i.imgur.com/fvM2d2J.png')
+		team.update(logo: 'http://i.imgur.com/ucdy9Is.png')
 	elsif team.id == 3
-		team.update(logo: 'http://i.imgur.com/qMpoY6g.png')
+		team.update(logo: 'http://i.imgur.com/JTgwDWz.png')
 	elsif team.id == 4
-		team.update(logo: 'http://i.imgur.com/Ah4H5bX.png')
+		team.update(logo: 'http://i.imgur.com/GMMiKzS.png')
 	elsif team.id == 5
-		team.update(logo: '')
+		team.update(logo: 'http://i.imgur.com/GMMiKzS.png')
 	elsif team.id == 6
-		team.update(logo: 'http://i.imgur.com/VNr63vU.png')
+		team.update(logo: 'http://i.imgur.com/XjuhIVr.png')
 	elsif team.id == 7
-		team.update(logo: '')
+		team.update(logo: 'http://i.imgur.com/XjuhIVr.png')
 	elsif team.id == 8
-		team.update(logo: 'http://i.imgur.com/SC1Cnof.png')
+		team.update(logo: 'http://i.imgur.com/GRfTPTa.png')
 	elsif team.id == 9
-		team.update(logo: 'http://i.imgur.com/zvciPsN.png')
+		team.update(logo: 'http://i.imgur.com/eVcrWea.png')
 	elsif team.id == 10
-		team.update(logo: 'http://i.imgur.com/cNNU3sh.png')
+		team.update(logo: 'http://i.imgur.com/MZaM0vC.png')
 	elsif team.id == 11
-		team.update(logo: 'http://i.imgur.com/Pl7a10b.png')
+		team.update(logo: 'http://i.imgur.com/7a8kEvW.png')
 	elsif team.id == 12
-		team.update(logo: 'http://i.imgur.com/qzzeam3.png')
+		team.update(logo: 'http://i.imgur.com/D7h3hWW.png')
 	elsif team.id == 13
-		team.update(logo: 'http://i.imgur.com/kjWOnPI.png')
+		team.update(logo: 'http://i.imgur.com/EUyWaWK.png')
 	elsif team.id == 14
-		team.update(logo: 'http://i.imgur.com/CiUSK6p.png')
+		team.update(logo: 'http://i.imgur.com/6jQu1AT.png')
 	elsif team.id == 15
-		team.update(logo: 'http://i.imgur.com/dTJWjbQ.png')
+		team.update(logo: 'http://i.imgur.com/3VH3D8y.png')
 	elsif team.id == 16
-		team.update(logo: 'http://i.imgur.com/RZUumTC.png')
+		team.update(logo: 'http://i.imgur.com/qsvtWEr.png')
 	elsif team.id == 17
-		team.update(logo: 'http://i.imgur.com/BjbNfBI.png')
+		team.update(logo: 'http://i.imgur.com/l5HYfQT.png')
 	elsif team.id == 18
-		team.update(logo: 'http://i.imgur.com/6rAZcpi.png')
+		team.update(logo: 'http://i.imgur.com/XILmK9v.png')
 	elsif team.id == 19
-		team.update(logo: 'http://i.imgur.com/GczECGK.png')
+		team.update(logo: 'http://i.imgur.com/RSPJ72s.png')
 	elsif team.id == 20
-		team.update(logo: 'http://i.imgur.com/qLR2c5k.png')
+		team.update(logo: 'http://i.imgur.com/m0PMtEz.png')
 	elsif team.id == 21
-		team.update(logo: 'http://i.imgur.com/Ld7UHKV.png')
+		team.update(logo: 'http://i.imgur.com/C4EcOVY.png')
 	elsif team.id == 22
-		team.update(logo: 'http://i.imgur.com/ejsDjKJ.png')
+		team.update(logo: 'http://i.imgur.com/6U2bM7Q.png')
 	elsif team.id == 23
-		team.update(logo: 'http://i.imgur.com/QptRDRV.png')
+		team.update(logo: 'http://i.imgur.com/ICPsP7i.png')
 	elsif team.id == 24
-		team.update(logo: 'http://i.imgur.com/4MpENgU.png')
+		team.update(logo: 'http://i.imgur.com/3llv0xP.png')
 	elsif team.id == 25
-		team.update(logo: 'http://i.imgur.com/Sn0PWsE.png')
+		team.update(logo: 'http://i.imgur.com/DiAn3KI.png')
 	elsif team.id == 26
-		team.update(logo: 'http://i.imgur.com/N40KcUY.png')
+		team.update(logo: 'http://i.imgur.com/GBN6Ey2.png')
 	elsif team.id == 27
-		team.update(logo: 'http://i.imgur.com/vhQKIpz.png')
+		team.update(logo: 'http://i.imgur.com/Mrth0g8.png')
 	elsif team.id == 28
-		team.update(logo: 'http://i.imgur.com/SDTd52F.png')
+		team.update(logo: 'http://i.imgur.com/YOsEhNq.png')
 	elsif team.id == 29
-		team.update(logo: 'http://i.imgur.com/2JMgj3P.png')
+		team.update(logo: 'http://i.imgur.com/EtON2zD.png')
 	elsif team.id == 30
-		team.update(logo: 'http://i.imgur.com/B2fguau.png')
+		team.update(logo: 'http://i.imgur.com/ozgPmRz.png')
 	end
 end
 
