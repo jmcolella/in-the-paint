@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   def show
     @comments = @article.comments
 
-    render json: { article: @article, comments: @comments }
+    render json: { team: @article.team, article: @article, comments: @comments }
   end
 
   def edit
