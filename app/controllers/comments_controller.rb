@@ -35,13 +35,15 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @comment.destroy
 
-    render json: { success: "200" }
+    @article = Article.find_by(id: params[:article_id])
+
+    render json: { comments: @article.comments }
   end
 
   private
 
   def find_comment
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find_by(id: params[:id])
   end
 
   def comment_params
