@@ -42,11 +42,11 @@ Team.all.each do |team|
 	elsif team.id == 4
 		team.update(logo: 'http://i.imgur.com/GMMiKzS.png')
 	elsif team.id == 5
-		team.update(logo: 'http://i.imgur.com/GMMiKzS.png')
+		team.update(logo: 'http://i.imgur.com/iGnleJK.png')
 	elsif team.id == 6
 		team.update(logo: 'http://i.imgur.com/XjuhIVr.png')
 	elsif team.id == 7
-		team.update(logo: 'http://i.imgur.com/XjuhIVr.png')
+		team.update(logo: 'http://i.imgur.com/UdVSWdB.png')
 	elsif team.id == 8
 		team.update(logo: 'http://i.imgur.com/GRfTPTa.png')
 	elsif team.id == 9
