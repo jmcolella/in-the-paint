@@ -103,7 +103,8 @@ Team.all.each do |team|
 
 	api_team['players'].each do |player|
 			Player.create!( name: player['full_name'],
-										 position: player['primary_postion'],
+										 position: player['primary_position'],
+										 number: player['jersey_number'],
 										 api_id: player['id'],
 										 height: player['height'],
 										 weight: player['weight'],
