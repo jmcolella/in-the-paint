@@ -5,27 +5,28 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.new(user_params)
-    	if user.save
-    	  session[:user_id] = user.id
+		@user = User.find_by(login_email)
+    if @user && @user.authenticate(login_password[:password])
+    	  session[:user_id] = @user.id
+
+        render json: { session_id: session[:user_id], current_user: current_user }
     	end
 	end
 
 	def destroy
-		@user = User.find(params[:id])
-    	if @user
-      	   @user.destroy
-    	else
-      	   render '404'
-    	end
-  	end
+		session.clear
 
-  	private
+    render json: { session_id: false, current_user: false }
+	end
 
-  	def user_params
-    	params.require(:user).permit(:username, :email, :password)
-  	end
+	private
 
-end
+	def login_email
+    params.require(:login).permit(:email)
+  end
+
+  def login_password
+    params.require(:login).permit(:password)
+  end
 
 end
