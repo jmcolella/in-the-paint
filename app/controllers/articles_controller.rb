@@ -40,6 +40,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    # binding.pry
+    @article = Article.find_by(id: params[:id])
     @article.destroy
 
     render json: { success: "200" }
