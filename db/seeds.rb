@@ -112,25 +112,25 @@ Team.all.each do |team|
 	end
 end
 
-100.times do
-	User.create!( username: Faker::Internet.user_name,
-								email: Faker::Internet.email,
-								password: 'password',
-								team_id: rand(1..30) )
-end
+# 100.times do
+# 	User.create!( username: Faker::Internet.user_name,
+# 								email: Faker::Internet.email,
+# 								password: 'password',
+# 								team_id: rand(1..30) )
+# end
 
-200.times do
-	Article.create!( title: Faker::Lorem.sentence,
-									 body: Faker::Lorem.paragraph(2),
-									 team_id: rand(1..30),
-									 user_id: rand(1..100) )
-end
+# 200.times do
+# 	Article.create!( title: Faker::Lorem.sentence,
+# 									 body: Faker::Lorem.paragraph(2),
+# 									 team_id: rand(1..30),
+# 									 user_id: rand(1..100) )
+# end
 
-200.times do
-	Comment.create!( body: Faker::Lorem.sentence,
-									 user_id: rand(1..100),
-									 article_id: rand(1..200) )
-end
+# 200.times do
+# 	Comment.create!( body: Faker::Lorem.sentence,
+# 									 user_id: rand(1..100),
+# 									 article_id: rand(1..200) )
+# end
 
 # OLD API SEED INFORMATION
 # require 'nba_api_wrapper'
